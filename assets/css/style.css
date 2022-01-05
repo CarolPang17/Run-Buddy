@@ -13,12 +13,16 @@ body {
 /* HEADER / NAV BAR STYLES START */
 
 header {
-  display: flex;
   padding: 20px 35px;
   background-color: #39a6b2;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  position: -webkit-sticky;
+  position: sticky;
+top: 0;
+background-attachment: fixed;
+background-position: 80%;
 }
 
 header h1 {
@@ -95,6 +99,8 @@ section {
   justify-content: center;
   flex-wrap: wrap;
   align-items: flex-start;
+  background-attachment: fixed;
+background-position: 80%;
 }
 
 .hero-cta {
@@ -106,27 +112,6 @@ section {
   line-height: 1.2;
 }
 
-.hero-cta h2 {
-  font-style: italic;
-  font-size: 55px;
-  color: #fce138;
-}
-
-.hero-cta {
-  width: 35%;
-  text-align: right;
-  margin: 3.5%;
-  color: #fff;
-  font-size: 18px;
-  line-height: 1.3;
-}
-
-.hero-cta h2 {
-  font-style: italic;
-  font-size: 55px;
-  color: #fce138;
-}
-
 .hero-form {
   border: 3px solid #024e76;
   background-color: #fce138;
@@ -134,6 +119,8 @@ section {
   color: #024e76;
   width: 40%;
   margin: 3.5%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
 }
 
 .hero-form h3 {
@@ -382,11 +369,19 @@ section {
   header {
     padding-bottom: 0;
     justify-content: center;
+    position: relative
   }
 
   header h1 {
-    width: 100%;
-    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  header nav ul li a {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-cta h2 {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 
   header nav ul {
@@ -395,9 +390,6 @@ section {
     justify-content: center;
   }
 
-  header nav ul li a {
-    font-size: 20px;
-  }
 
   footer h2, footer div {
     text-align: center;
@@ -425,8 +417,8 @@ section {
   }
 }
 
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
 @media screen and (max-width: 768px) {
-
   section {
     padding: 30px 15px;
   }
@@ -452,11 +444,10 @@ section {
   .step-text {
     flex: 100%;
   }
-
 }
 
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
 @media screen and (max-width: 575px) {
-
   .hero-form button {
     width: 100%;
   }
@@ -473,13 +464,97 @@ section {
     flex: 0 100%;
   }
 
-  .contact-form {
-    order: 3;
+  .contact-info {
+    text-align: center;
   }
 
   .contact-info > * {
     flex: 0 100%;
   }
 
+  .contact-form {
+    order: 3;
+  }
+}
 
+.form-input {
+  border-radius: 10px;
+}
+
+.hero-form button {
+  border-radius: 10px;
+}
+
+.contact-form input, .contact-form textarea {
+  border-radius: 10px;
+}
+
+.contact-form button {
+  border-radius: 10px;
+}
+
+.hero header {
+  background-image: url("../images/hero-bg.jpg");
+background-size: cover;
+background-position: center;
+}
+
+
+/* default state */
+button {
+  background: white;
+}
+
+/* mouse is hovering over button */
+button:hover {
+  background: red;
+}
+
+/* button is in focus because it was the most recently clicked element on the page */
+button:focus {
+  background: green;
+}
+
+/* user is actively pressing the cursor down on the button */
+button:active {
+  background: blue;
+}
+
+header nav ul li a:hover {
+  background: #fce138;
+  color: #024e76;
+  border-radius: 15px;
+  text-shadow: none;
+}
+
+.hero-form button:hover {
+  background-color: #39a6b2;
+}
+
+.contact-form button:hover {
+  color: #fce138;
+  background: #39a6b2;
+}
+
+/* update existing rule with this declaration */
+.form-input {
+  background-color: rgba(255,255,255, 0.75);
+}
+
+/* create a new rule for focus state */
+.form-input:focus {
+  background-color: rgba(255,255,255, 1);
+}
+
+.step:nth-child(even) {
+  border-bottom: 1px solid #39a6b2;
+}
+
+.step {
+  /* re-add alongside existing declarations */
+  border-bottom: 1px solid #39a6b2;
+}
+
+.step:last-child {
+  border-bottom: none;
 }
